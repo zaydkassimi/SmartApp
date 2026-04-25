@@ -1,59 +1,80 @@
-# TensorFlow Lite Image Classification Demo
+Voici le contenu complet à copier-coller :
 
-### Overview
+```
+# SmartApp — Real-Time Image Classification on Android
 
-This is a camera app that continuously classifies the objects in the frames
-seen by your device's back camera, with the option to use a quantized
-[MobileNet V1](https://tfhub.dev/tensorflow/lite-model/mobilenet_v1_1.0_224_quantized/1/metadata/1),
-[EfficientNet Lite0](https://tfhub.dev/tensorflow/lite-model/efficientnet/lite0/int8/2),
-[EfficientNet Lite1](https://tfhub.dev/tensorflow/lite-model/efficientnet/lite1/int8/2),
-or
-[EfficientNet Lite2](https://tfhub.dev/tensorflow/lite-model/efficientnet/lite2/int8/2)
-model trained on Imagenet (ILSVRC-2012-CLS). These instructions
-walk you through building and running the demo on an Android device.
+> An Android application that leverages on-device machine learning to classify objects in real time through the device camera.
 
-The model files are downloaded via Gradle scripts when you build and run the
-app. You don't need to do any steps to download TFLite models into the project
-explicitly.
+---
 
-This application should be run on a physical Android device.
+## Overview
 
-![App example showing UI controls. Result is espresso.](screenshot1.jpg?raw=true "Screenshot with controls")
+SmartApp is a native Android application built with Kotlin that integrates a custom-trained TensorFlow Lite model to perform real-time image classification. The model was trained using Google Teachable Machine and optimized for mobile inference using quantization techniques.
 
-![App example without UI controls. Result is espresso.](screenshot2.jpg?raw=true "Screenshot without controls")
+The application processes live camera frames, runs inference on-device without any internet connection, and displays classification results with confidence scores — all in milliseconds.
 
-This sample demonstrates how to use TensorFlow Lite with Kotlin. If
-you would like to see an example using Java, please go to the
-[android_java sample directory](../android_java).
+---
 
+## Demo
 
-## Build the demo using Android Studio
+```
+Camera Feed  →  Frame Capture  →  TFLite Inference  →  Result + Confidence Score
+```
 
-### Prerequisites
+---
 
-* The **[Android Studio](https://developer.android.com/studio/index.html)**
-    IDE (Android Studio 2021.2.1 or newer). This sample has been tested on
-    Android Studio Chipmunk
+## Features
 
-* A physical Android device with a minimum OS version of SDK 23 (Android 6.0 -
-    Marshmallow) with developer mode enabled. The process of enabling developer
-    mode may vary by device.
+- Real-time object classification via device camera
+- On-device inference — no internet required
+- Custom AI model trained with Google Teachable Machine
+- GPU acceleration support via TensorFlow Lite GPU Delegate
+- Configurable inference parameters (threshold, max results, threads)
+- Built with CameraX for reliable camera lifecycle management
 
-### Building
+---
 
-* Open Android Studio. From the Welcome screen, select Open an existing
-    Android Studio project.
+## Tech Stack
 
-* From the Open File or Project window that appears, navigate to and select
-    the tensorflow-lite/examples/image_classification/android directory.
-    Click OK.
+| Layer | Technology |
+|---|---|
+| Language | Kotlin |
+| UI | XML Layouts |
+| Camera | CameraX |
+| ML Framework | TensorFlow Lite |
+| Model Training | Google Teachable Machine |
+| Build System | Gradle |
+| IDE | Android Studio |
 
-* If it asks you to do a Gradle Sync, click OK.
+---
 
-* With your Android device connected to your computer and developer mode
-    enabled, click on the green Run arrow in Android Studio.
+## Project Structure
 
-### Models used
+```
+app/
+└── src/
+    └── main/
+        ├── assets/
+        │   └── converted_tflite_quantized/
+        │       ├── model.tflite
+        │       └── labels.txt
+        ├── java/
+        │   └── ImageClassifierHelper.kt
+        │   └── MainActivity.kt
+        │   └── CameraFragment.kt
+        └── res/
+```
 
-Downloading, extraction, and placing the models into the assets folder is
-managed automatically by the download.gradle file.
+---
+
+## Developer
+
+**Zayd Kassimi**
+GitHub: [@zaydkassimi](https://github.com/zaydkassimi)
+
+---
+
+## Acknowledgements
+
+Based on [TensorFlow Lite Examples](https://github.com/tensorflow/examples) by Google, adapted for academic purposes.
+```
