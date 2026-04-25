@@ -1,10 +1,10 @@
-# SmartApp — Real-Time Image Classification on Android
+# 📱 SmartApp — Real-Time Image Classification on Android
 
-> An Android application that leverages on-device machine learning to classify objects in real time through the device camera.
+> 🤖 An Android application that leverages on-device machine learning to classify objects in real time through the device camera.
 
 ---
 
-## Overview
+## 📌 Overview
 
 SmartApp is a native Android application built with Kotlin that integrates a custom-trained TensorFlow Lite model to perform real-time image classification. The model was trained using Google Teachable Machine and optimized for mobile inference using quantization techniques.
 
@@ -12,40 +12,40 @@ The application processes live camera frames, runs inference on-device without a
 
 ---
 
-## Demo
+## 🎬 Demo
 
 ```
-Camera Feed  →  Frame Capture  →  TFLite Inference  →  Result + Confidence Score
+📷 Camera Feed  →  🖼️ Frame Capture  →  ⚡ TFLite Inference  →  ✅ Result + Confidence Score
 ```
 
 ---
 
-## Features
+## ✨ Features
 
-- Real-time object classification via device camera
-- On-device inference — no internet required
-- Custom AI model trained with Google Teachable Machine
-- GPU acceleration support via TensorFlow Lite GPU Delegate
-- Configurable inference parameters (threshold, max results, threads)
-- Built with CameraX for reliable camera lifecycle management
+- 📷 Real-time object classification via device camera
+- 🔒 On-device inference — no internet required
+- 🧠 Custom AI model trained with Google Teachable Machine
+- ⚡ GPU acceleration support via TensorFlow Lite GPU Delegate
+- 🎯 Configurable inference parameters (threshold, max results, threads)
+- 📱 Built with CameraX for reliable camera lifecycle management
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Language | Kotlin |
-| UI | XML Layouts |
-| Camera | CameraX |
-| ML Framework | TensorFlow Lite |
-| Model Training | Google Teachable Machine |
-| Build System | Gradle |
-| IDE | Android Studio |
+| 💻 Language | Kotlin |
+| 🎨 UI | XML Layouts |
+| 📷 Camera | CameraX |
+| 🤖 ML Framework | TensorFlow Lite |
+| 🏋️ Model Training | Google Teachable Machine |
+| ⚙️ Build System | Gradle |
+| 🛠️ IDE | Android Studio |
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 app/
@@ -66,7 +66,7 @@ app/
 
 ---
 
-## Key Components
+## 🔑 Key Components
 
 ### `ImageClassifierHelper.kt`
 Manages the TFLite model lifecycle. Handles model loading from assets, configures inference options (delegate, threads, threshold), and exposes a `classify()` method that accepts a bitmap and returns classification results.
@@ -79,7 +79,7 @@ Entry point of the application. Sets up navigation and manages the overall UI st
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - Android Studio Flamingo or newer
@@ -99,7 +99,7 @@ git clone https://github.com/zaydkassimi/SmartApp.git
 
 ---
 
-## Model Integration
+## 🧠 Model Integration
 
 The AI model was trained using **Google Teachable Machine**:
 
@@ -110,13 +110,13 @@ The AI model was trained using **Google Teachable Machine**:
 
 ---
 
-## Developer
+## 👨‍💻 Developer
 
 **Zayd Kassimi**
 GitHub: [@zaydkassimi](https://github.com/zaydkassimi)
 
 ---
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 This project is based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples) repository by Google, adapted and customized for academic purposes.
