@@ -1,6 +1,3 @@
-Voici le contenu complet à copier-coller :
-
-```
 # SmartApp — Real-Time Image Classification on Android
 
 > An Android application that leverages on-device machine learning to classify objects in real time through the device camera.
@@ -56,14 +53,60 @@ app/
     └── main/
         ├── assets/
         │   └── converted_tflite_quantized/
-        │       ├── model.tflite
-        │       └── labels.txt
+        │       ├── model.tflite       # Trained TFLite model
+        │       └── labels.txt         # Classification labels
         ├── java/
-        │   └── ImageClassifierHelper.kt
-        │   └── MainActivity.kt
-        │   └── CameraFragment.kt
-        └── res/
+        │   └── org.tensorflow.lite.examples.imageclassification/
+        │       ├── ImageClassifierHelper.kt   # ML inference logic
+        │       ├── MainActivity.kt            # App entry point
+        │       └── fragments/
+        │           └── CameraFragment.kt      # Camera & UI logic
+        └── res/                               # Layouts & resources
 ```
+
+---
+
+## Key Components
+
+### `ImageClassifierHelper.kt`
+Manages the TFLite model lifecycle. Handles model loading from assets, configures inference options (delegate, threads, threshold), and exposes a `classify()` method that accepts a bitmap and returns classification results.
+
+### `CameraFragment.kt`
+Integrates CameraX to capture live frames and passes them to `ImageClassifierHelper`. Handles camera permissions, rotation, and real-time display of results.
+
+### `MainActivity.kt`
+Entry point of the application. Sets up navigation and manages the overall UI structure.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Android Studio Flamingo or newer
+- Android device running Android 6.0+ (API 23+)
+- Physical device recommended for camera functionality
+
+### Installation
+
+```bash
+git clone https://github.com/zaydkassimi/SmartApp.git
+```
+
+1. Open the project in Android Studio
+2. Wait for Gradle sync to complete
+3. Connect a physical Android device with USB debugging enabled
+4. Click **Run ▶**
+
+---
+
+## Model Integration
+
+The AI model was trained using **Google Teachable Machine**:
+
+1. Collected image samples per class on Teachable Machine
+2. Trained and exported as a **Quantized TFLite** model
+3. Placed `model.tflite` and `labels.txt` inside `assets/converted_tflite_quantized/`
+4. Configured `ImageClassifierHelper.kt` to load the custom model path
 
 ---
 
@@ -76,5 +119,4 @@ GitHub: [@zaydkassimi](https://github.com/zaydkassimi)
 
 ## Acknowledgements
 
-Based on [TensorFlow Lite Examples](https://github.com/tensorflow/examples) by Google, adapted for academic purposes.
-```
+This project is based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples) repository by Google, adapted and customized for academic purposes.
